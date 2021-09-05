@@ -18,7 +18,7 @@ export default class RouterHandler { // Export to use in app.js
           { path: "/show", page: Stories }
         ];
 
-        routes.forEach(({path, page}) => { // Object destructuring for easy access and readibility
+        routes.forEach(({path, page}) => { // Object destructuring for easy access and readibilityq
             // On a given route path, tells the app what to display
             router.on(path, () => {
                 // Passing the route's paths to stories.js to display 
