@@ -1,3 +1,4 @@
+import Story from "../components/Story.js";
 import view from "../utils/view.js";
 
 export default async function Stories(path) { // Getting path from router.on(route.path)
@@ -10,9 +11,12 @@ export default async function Stories(path) { // Getting path from router.on(rou
     //     view.innerHTML += `<div>${story.title}</div>`;
     // });
 
-    // Checking if there is any story and display them
+    // Checking if there is any story and display them.
+    // We will need to pass the 'story' element to Story.js component
+    // so we could format it before displaying.
+    // Spread op. being used here to add to the list all the story object and its index
     view.innerHTML = `<div>
-        ${hasStories ? stories.map(story => JSON.stringify(story)) : 'No stories.'}
+        ${hasStories ? stories.map((story, i) => Story({...story, index: i + 1})).join('') : 'No stories.'}
     </div>`;
 }
 
