@@ -1,15 +1,11 @@
 import Story from "../components/Story.js";
 import view from "../utils/view.js";
+import baseUrl from "../utils/baseUrl.js";
 
 export default async function Stories(path) { // Getting path from router.on(route.path)
     // this also need await, very important!
     const stories = await getStories(path);
     const hasStories = stories.length > 0;
-
-    // view.innerHTML = `<div>${path}</div>`;
-    // stories.forEach(story => {
-    //     view.innerHTML += `<div>${story.title}</div>`;
-    // });
 
     // Checking if there is any story and display them.
     // We will need to pass the 'story' element to Story.js component
@@ -33,7 +29,7 @@ async function getStories(path) {
         path = '/newest'
     }
     // REMEMBER: await doesn't work without an async function
-    const response = await fetch(`https://node-hnapi.herokuapp.com${path}`);
+    const response = await fetch(`${baseUrl}${path}`);
     const stories = await response.json();
     return stories;
 }

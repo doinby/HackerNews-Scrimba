@@ -1,5 +1,6 @@
 // Importing should be at the top
 import Stories from './pages/stories.js'
+import Item from './pages/item.js';
 
 // Refering to doc to understand deployment syntaxes
 const router = new Navigo(null, true, '#');
@@ -15,7 +16,8 @@ export default class RouterHandler { // Export to use in app.js
           { path: "/", page: Stories },
           { path: "/new", page: Stories },
           { path: "/ask", page: Stories },
-          { path: "/show", page: Stories }
+          { path: "/show", page: Stories },
+          { path: "/item", page: Item },
         ];
 
         routes.forEach(({path, page}) => { // Object destructuring for easy access and readibilityq
